@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>差值表达式</h1>
+      <h3>{{msg}}</h3>
+      <h3>{{count}}</h3>
+      <h1>v-text</h1>
+      <div v-text="msg"></div>
+      <h1>v-model</h1>
+      <input type="text" v-model="msg" />
+      <input type="text" v-model="count" />
+    </div>
+    <script src="./js/dep.js"></script>
+    <script src="./js/watcher.js"></script>
+    <script src="./js/compiler.js"></script>
+    <script src="./js/observer.js"></script>
+    <script src="./js/vue.js"></script>
+    <script>
+      let vm = new Vue({
+        el: '#app',
+        data: {
+          msg: 'hello world',
+          count: 100,
+          person: {
+            name: 'zs'
+          }
+        }
+      })
+
+      // vm.msg = { text: 'abc' }
+    </script>
+  </body>
+</html>
+
+Dep： 是发布者 搜集依赖，每个响应式属性 都会创建一个 Dep(发布者)
+负责搜集该属性的地方 watcher 搜集属性的依赖
